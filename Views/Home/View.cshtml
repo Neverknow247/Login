@@ -1,0 +1,22 @@
+@{
+    ViewData["Title"] = $"{ViewBag.Wedding.WedderOne} & {ViewBag.Wedding.WedderTwo}'s Wedding";
+}
+
+
+@model Weddings
+<div class="row">
+    <h1>@ViewBag.Wedding.WedderOne & @ViewBag.Wedding.WedderTwo's Wedding</h1>
+    <div class="row">
+        <p><a href="/Dashboard">Dashboard</a> <a href="/logout">Logout</a></p>
+    </div>
+</div>
+<div class="row">
+    <div>
+        <h3>Date: @ViewBag.Wedding.WeddingDate</h3>
+        <h3>Guests:</h3>
+        @foreach (Guests i in @Model.WeddingGuests)
+        {
+            <p class="center">@i.User.FirstName @i.User.LastName</p>
+        }
+    </div>
+</div>
